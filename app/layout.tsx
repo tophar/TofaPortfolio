@@ -1,35 +1,24 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const configuredOrigin = process.env.NEXT_PUBLIC_SITE_URL;
+const vercelHost =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+const siteOrigin =
+  configuredOrigin ??
+  (vercelHost ? `https://${vercelHost}` : "http://localhost:3000");
+const title = "Tofa David — Product Design & Strategy";
+const description =
+  "Product design leader helping teams turn complex ideas into useful, adoptable products.";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
-  const title = "Tofa David — Product Design & Strategy";
-  const description = "Product design leader helping teams turn complex ideas into useful, adoptable products.";
-
-  return {
-    metadataBase: new URL(origin),
-    title,
-    description,
-    icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
-    openGraph: { title, description, type: "website", images: [new URL("/og.png", origin)] },
-    twitter: { card: "summary_large_image", title, description, images: [new URL("/og.png", origin)] },
-  };
-}
+export const metadata: Metadata = {
+  metadataBase: new URL(siteOrigin),
+  title,
+  description,
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
+  openGraph: { title, description, type: "website", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+};
 
 export default function RootLayout({
   children,
@@ -38,11 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

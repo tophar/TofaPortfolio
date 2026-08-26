@@ -1,15 +1,17 @@
+import Link from "next/link";
+
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="Tofa David, home">
+      <Link className="brand" href="/" aria-label="Tofa David, home">
         <span className="brand-mark" aria-hidden="true">TD</span>
         <span>Tofa David</span>
-      </a>
+      </Link>
       <nav aria-label="Primary navigation">
-        <a href="/#work">Work</a>
-        <a href="/#approach">Approach</a>
-        <a href="/about">About</a>
-        <a href="/#contact">Contact</a>
+        <Link href="/#work">Work</Link>
+        <Link href="/#approach">Approach</Link>
+        <Link href="/about">About</Link>
+        <Link href="/#contact">Contact</Link>
       </nav>
     </header>
   );
