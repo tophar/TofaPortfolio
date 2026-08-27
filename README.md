@@ -42,4 +42,5 @@ This gives social-share previews a stable canonical origin. Include the `https:/
 - `/about` — profile and experience
 - `/projects/bongs` — Bongs case study
 - `/projects/suburban-cloud` — Suburban Cloud case study
+- `/projects/smartseal` — SmartSeal product design case study
 - `/projects/alphasafe` — Alphasafe case study

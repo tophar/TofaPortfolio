@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function SiteHeader() {
@@ -34,14 +35,32 @@ export function SiteFooter() {
   );
 }
 
-export function ProjectVisual({ theme, compact = false }: { theme: string; compact?: boolean }) {
+export function ProjectVisual({
+  theme,
+  compact = false,
+  imageSrc,
+  imageAlt = "",
+}: {
+  theme: string;
+  compact?: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
+}) {
+  if (imageSrc) {
+    return (
+      <div className={`project-visual project-visual-image ${compact ? "visual-compact" : ""}`}>
+        <Image src={imageSrc} alt={imageAlt} fill sizes={compact ? "(max-width: 900px) 100vw, 1280px" : "(max-width: 900px) 100vw, 56vw"} />
+      </div>
+    );
+  }
+
   return (
     <div className={`project-visual visual-${theme} ${compact ? "visual-compact" : ""}`} aria-hidden="true">
       <div className="visual-grid" />
       <div className="visual-window window-a"><span /><span /><span /></div>
       <div className="visual-window window-b"><span /><span /></div>
       <div className="visual-orb" />
-      <div className="visual-code">{theme === "lime" ? "OPS / 04" : theme === "blue" ? "CLOUD / GTM" : "SAVE / TOGETHER"}</div>
+      <div className="visual-code">{theme === "lime" ? "OPS / 04" : theme === "blue" ? "CLOUD / GTM" : theme === "teal" ? "NFC / NFT" : "SAVE / TOGETHER"}</div>
     </div>
   );
 }

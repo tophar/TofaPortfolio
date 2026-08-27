@@ -1,5 +1,6 @@
 import { experience, projects } from "./portfolio-data";
 import { ProjectVisual, SiteFooter, SiteHeader } from "./site-chrome";
+import Link from "next/link";
 
 const proofPoints = [
   { value: "10+", label: "Years across design, strategy, and growth" },
@@ -54,19 +55,19 @@ export default function Home() {
             <p className="eyebrow">Selected work</p>
             <h2>Products, systems, and routes to adoption.</h2>
           </div>
-          <p>Three stories showing how I connect user experience, product direction, and business reality.</p>
+          <p>Four stories showing how I connect user experience, product direction, and business reality.</p>
         </div>
         <div className="project-list">
           {projects.map((project, index) => (
-            <a className="project-card" href={`/projects/${project.slug}`} key={project.slug}>
-              <ProjectVisual theme={project.theme} />
+            <Link className="project-card" href={`/projects/${project.slug}`} key={project.slug}>
+              <ProjectVisual theme={project.theme} imageSrc={project.heroImage} imageAlt={project.heroAlt} />
               <div className="project-copy">
                 <p className="project-meta">0{index + 1} · {project.company} · {project.readTime}</p>
                 <h3>{project.title}</h3>
                 <p>{project.summary}</p>
                 <span>Read case study ↗</span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

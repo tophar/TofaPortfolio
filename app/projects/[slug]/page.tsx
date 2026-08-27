@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, projects } from "../../portfolio-data";
 import { ProjectVisual, SiteFooter, SiteHeader } from "../../site-chrome";
@@ -17,8 +19,19 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title,
     description: project.summary,
-    openGraph: { title, description: project.summary, images: [] },
-    twitter: { card: "summary", title, description: project.summary, images: [] },
+    openGraph: {
+      title,
+      description: project.summary,
+      images: project.heroImage
+        ? [{ url: project.heroImage, alt: project.heroAlt ?? project.title }]
+        : [],
+    },
+    twitter: {
+      card: project.heroImage ? "summary_large_image" : "summary",
+      title,
+      description: project.summary,
+      images: project.heroImage ? [project.heroImage] : [],
+    },
   };
 }
 
@@ -44,7 +57,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <div className="case-visual-wrap"><ProjectVisual theme={project.theme} compact /></div>
+      <div className="case-visual-wrap"><ProjectVisual theme={project.theme} compact imageSrc={project.heroImage} imageAlt={project.heroAlt} /></div>
 
       <section className="case-metrics">
         {project.metrics.map((metric) => <article key={metric.value}><strong>{metric.value}</strong><p>{metric.label}</p></article>)}
@@ -60,16 +73,56 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div><h2>Creating a direction the team could act on.</h2><ol>{project.strategy.map((item) => <li key={item}>{item}</li>)}</ol></div>
       </section>
 
+      {project.gallery && (
+        <section className="case-gallery" aria-labelledby="case-gallery-title">
+          <div className="case-gallery-heading">
+            <p className="case-label">Design evidence</p>
+            <div>
+              <h2 id="case-gallery-title">{project.galleryTitle}</h2>
+              <p>{project.galleryIntro}</p>
+            </div>
+          </div>
+          <div className="case-gallery-grid">
+            {project.gallery.map((item) => (
+              <figure className={`case-gallery-card case-gallery-card--${item.layout ?? "standard"}`} key={item.src}>
+                <a href={item.src} target="_blank" rel="noreferrer" aria-label={`${item.caption} Open the full artifact.`}>
+                  <span className="case-gallery-frame">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes={item.layout === "wide" ? "(max-width: 900px) 100vw, 1280px" : "(max-width: 900px) 100vw, 620px"}
+                      className={`gallery-image gallery-image--${item.fit ?? "cover"}`}
+                      style={{ objectPosition: item.position ?? "center" }}
+                    />
+                  </span>
+                  <figcaption>{item.caption}<span>Open full artifact ↗</span></figcaption>
+                </a>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="case-section results-section">
         <p className="case-label">03 · Result</p>
-        <div><h2>Turning the direction into tangible product and business value.</h2><div className="result-list">{project.result.map((item, index) => <article key={item}><span>0{index + 1}</span><p>{item}</p></article>)}</div></div>
+        <div>
+          <h2>Turning the direction into tangible product and business value.</h2>
+          <div className="result-list">{project.result.map((item, index) => <article key={item}><span>0{index + 1}</span><p>{item}</p></article>)}</div>
+          {project.sources && (
+            <div className="case-sources" aria-label="External sources">
+              <p>Company context and reported outcomes</p>
+              {project.sources.map((source) => <a href={source.href} target="_blank" rel="noreferrer" key={source.href}>{source.label} ↗</a>)}
+            </div>
+          )}
+        </div>
       </section>
 
-      <a className="next-project" href={`/projects/${nextProject.slug}`}>
+      <Link className="next-project" href={`/projects/${nextProject.slug}`}>
         <span>Next project · {nextProject.company}</span>
         <strong>{nextProject.title}</strong>
         <span className="next-arrow">↗</span>
-      </a>
+      </Link>
       <SiteFooter />
     </main>
   );
