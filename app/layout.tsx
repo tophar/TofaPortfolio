@@ -15,7 +15,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title,
   description,
-  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
+  icons: {
+    icon: "/tofa-logo.png",
+    shortcut: "/tofa-logo.png",
+    apple: "/tofa-logo.png",
+  },
   openGraph: { title, description, type: "website", images: ["/og.png"] },
   twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
 };

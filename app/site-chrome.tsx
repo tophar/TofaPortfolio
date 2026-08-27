@@ -5,7 +5,9 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Tofa David, home">
-        <span className="brand-mark" aria-hidden="true">TD</span>
+        <span className="brand-mark" aria-hidden="true">
+          <Image src="/tofa-logo.png" alt="" width={42} height={42} priority />
+        </span>
         <span>Tofa David</span>
       </Link>
       <nav aria-label="Primary navigation">
@@ -22,7 +24,9 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div>
-        <span className="brand-mark" aria-hidden="true">TD</span>
+        <span className="brand-mark" aria-hidden="true">
+          <Image src="/tofa-logo.png" alt="" width={42} height={42} />
+        </span>
         <p>Building usable, useful, and commercially viable products.</p>
       </div>
       <div className="footer-links">

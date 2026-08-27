@@ -1,6 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
 import { experience, projects } from "./portfolio-data";
 import { ProjectVisual, SiteFooter, SiteHeader } from "./site-chrome";
-import Link from "next/link";
 
 const proofPoints = [
   { value: "10+", label: "Years across design, strategy, and growth" },
@@ -35,7 +36,9 @@ export default function Home() {
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
           <div className="orbit orbit-three" />
-          <div className="hero-monogram">TD</div>
+          <div className="hero-logo">
+            <Image src="/tofa-logo.png" alt="" width={190} height={190} priority />
+          </div>
           <p>Useful by design.<br />Viable by strategy.</p>
         </div>
       </section>
