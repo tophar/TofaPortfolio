@@ -230,9 +230,9 @@ export const projects: Project[] = [
     role: "Product Design · Product Strategy · User Research",
     timeframe: "2022",
     theme: "violet",
-    heroImage: "/alphasafe/01-header.jpg",
+    heroImage: "/alphasafe/alphasafe-main.webp",
     heroAlt:
-      "Alphasafe campaign artwork presenting flexible, target, locked, and group savings alongside property and device loans",
+      "Alphasafe mobile product screens showing the home dashboard, group saving, invitations, loans, and brand mark",
     metrics: [
       { value: "4", label: "Core saving plan types in the experience" },
       { value: "3", label: "Models designed for group saving" },
