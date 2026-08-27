@@ -42,7 +42,6 @@ export default function Home() {
               priority
             />
           </div>
-          <p>Useful by design.<br />Viable by strategy.</p>
         </div>
       </section>
 
