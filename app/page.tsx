@@ -33,11 +33,14 @@ export default function Home() {
         </div>
 
         <div className="hero-art" aria-hidden="true">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="orbit orbit-three" />
-          <div className="hero-logo">
-            <Image src="/tofa-logo.png" alt="" width={190} height={190} priority />
+          <div className="hero-portrait">
+            <Image
+              src="/tofa-illustrated-portrait.png"
+              alt=""
+              fill
+              sizes="(max-width: 900px) 100vw, 410px"
+              priority
+            />
           </div>
           <p>Useful by design.<br />Viable by strategy.</p>
         </div>
