@@ -39,6 +39,9 @@ export const projects: Project[] = [
     role: "Head of Product Design",
     timeframe: "2024 — Present",
     theme: "lime",
+    heroImage: "/bongs/bongs-cover.png",
+    heroAlt:
+      "BONGS asset integrity screens showing equipment information, inspection data, and piping circuit setup",
     metrics: [
       { value: "4", label: "Operational areas connected in one product direction" },
       { value: "0→1", label: "Flagship product taken from scope to MVP" },
@@ -56,6 +59,44 @@ export const projects: Project[] = [
       "Created the strategy and design direction for DPAnalytics’ flagship product.",
       "Broadened the product’s value proposition through the Asset Integrity module.",
       "Helped position BONGS for market adoption and contributed to demand for tailored solutions from other organizations.",
+    ],
+    galleryTitle: "Making asset integrity visible, structured, and actionable.",
+    galleryIntro:
+      "The product system connects fleet setup and equipment registration to inspection planning, condition-monitoring data, maintenance decisions, compliance, and eventual decommissioning.",
+    gallery: [
+      {
+        src: "/bongs/fleet-setup.jpeg",
+        alt: "BONGS asset setup registry with vessel and equipment records",
+        caption: "Asset setup — a structured registry for vessels, equipment types, ownership, and operational records.",
+        layout: "portrait",
+        fit: "contain",
+      },
+      {
+        src: "/bongs/equipment-record.png",
+        alt: "BONGS centrifugal pump equipment record with status and operating information",
+        caption: "Equipment record — bringing technical identity, location, condition, and operating context into one view.",
+        fit: "contain",
+      },
+      {
+        src: "/bongs/piping-circuit.png",
+        alt: "BONGS form for creating a piping circuit and its condition monitoring locations",
+        caption: "Piping setup — defining circuit details and condition-monitoring locations without leaving the workflow.",
+        fit: "contain",
+      },
+      {
+        src: "/bongs/inspection-integrity.png",
+        alt: "BONGS inspection and integrity data form with monitoring locations and risk ranking",
+        caption: "Inspection data — connecting inspection strategy, readings, integrity analysis, risk, and follow-up notes.",
+        layout: "portrait",
+        fit: "contain",
+      },
+      {
+        src: "/bongs/asset-integrity-flow.png",
+        alt: "BONGS asset integrity management workflow from registration through inspection, repair, compliance, monitoring, and decommissioning",
+        caption: "System architecture — mapping the lifecycle from equipment registration to continuous monitoring and decommissioning.",
+        layout: "portrait",
+        fit: "contain",
+      },
     ],
   },
   {
