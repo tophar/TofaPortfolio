@@ -35,11 +35,19 @@ export default function Home() {
         <div className="hero-art" aria-hidden="true">
           <div className="hero-portrait">
             <Image
+              className="hero-portrait-open"
               src="/tofa-illustrated-portrait.png"
               alt=""
               fill
               sizes="(max-width: 900px) 100vw, 410px"
               priority
+            />
+            <Image
+              className="hero-portrait-blink"
+              src="/tofa-illustrated-portrait-blink.png"
+              alt=""
+              fill
+              sizes="(max-width: 900px) 100vw, 410px"
             />
           </div>
         </div>
