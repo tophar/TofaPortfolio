@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader() {
   return (
@@ -10,12 +11,15 @@ export function SiteHeader() {
         </span>
         <span>Tofa David</span>
       </Link>
-      <nav aria-label="Primary navigation">
-        <Link href="/#work">Work</Link>
-        <Link href="/#approach">Approach</Link>
-        <Link href="/about">About</Link>
-        <Link href="/#contact">Contact</Link>
-      </nav>
+      <div className="header-controls">
+        <nav aria-label="Primary navigation">
+          <Link href="/#work">Work</Link>
+          <Link href="/#approach">Approach</Link>
+          <Link href="/about">About</Link>
+          <Link href="/#contact">Contact</Link>
+        </nav>
+        <ThemeToggle id="header-theme-toggle" />
+      </div>
     </header>
   );
 }
@@ -23,11 +27,14 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div>
-        <span className="brand-mark" aria-hidden="true">
-          <Image src="/tofa-logo.png" alt="" width={42} height={42} />
-        </span>
-        <p>Building usable, useful, and commercially viable products.</p>
+      <div className="footer-top">
+        <div className="footer-brand-wrap">
+          <span className="brand-mark" aria-hidden="true">
+            <Image src="/tofa-logo.png" alt="" width={42} height={42} />
+          </span>
+          <p>Building usable, useful, and commercially viable products.</p>
+        </div>
+        <ThemeToggle id="footer-theme-toggle" variant="footer" />
       </div>
       <div className="footer-links">
         <a href="mailto:tophar95@gmail.com">Email</a>
