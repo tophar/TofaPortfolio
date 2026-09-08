@@ -5,8 +5,15 @@ import { SiteFooter, SiteHeader } from "../site-chrome";
 export const metadata: Metadata = {
   title: "About — Tofa David",
   description: "The journey and working philosophy of product design and strategy leader Tofa David.",
-  openGraph: { title: "About — Tofa David", description: "The journey and working philosophy of product design and strategy leader Tofa David.", images: [] },
-  twitter: { card: "summary", title: "About — Tofa David", description: "The journey and working philosophy of product design and strategy leader Tofa David.", images: [] },
+  openGraph: {
+    title: "About — Tofa David",
+    description: "The journey and working philosophy of product design and strategy leader Tofa David.",
+  },
+  twitter: {
+    card: "summary",
+    title: "About — Tofa David",
+    description: "The journey and working philosophy of product design and strategy leader Tofa David.",
+  },
 };
 
 export default function AboutPage() {

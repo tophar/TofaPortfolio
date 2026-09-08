@@ -22,15 +22,15 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     openGraph: {
       title,
       description: project.summary,
-      images: project.heroImage
-        ? [{ url: project.heroImage, alt: project.heroAlt ?? project.title }]
-        : [],
+      ...(project.heroImage
+        ? { images: [{ url: project.heroImage, alt: project.heroAlt ?? project.title }] }
+        : {}),
     },
     twitter: {
       card: project.heroImage ? "summary_large_image" : "summary",
       title,
       description: project.summary,
-      images: project.heroImage ? [project.heroImage] : [],
+      ...(project.heroImage ? { images: [project.heroImage] } : {}),
     },
   };
 }
