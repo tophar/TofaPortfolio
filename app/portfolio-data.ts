@@ -27,67 +27,8 @@ export type Project = {
   sources?: Array<{ label: string; href: string }>;
 };
 
+// Active selected work featured across the portfolio
 export const projects: Project[] = [
-  {
-    slug: "bongs",
-    company: "DPAnalytics Solutions",
-    title: "Shaping a vessel management ERP for complex operations",
-    summary:
-      "Scoping, product strategy, and end-to-end design for an enterprise platform spanning inventory, procurement, accommodation, and asset integrity.",
-    sector: "Enterprise SaaS",
-    readTime: "5 min",
-    role: "Head of Product Design",
-    timeframe: "2024 — Present",
-    theme: "lime",
-    metrics: [
-      { value: "4", label: "Operational areas connected in one product direction" },
-      { value: "0→1", label: "Flagship product taken from scope to MVP" },
-      { value: "+1", label: "Asset Integrity module added to broaden the offer" },
-    ],
-    challenge:
-      "Vessel operations involve several interconnected workflows. The product opportunity was to bring inventory, procurement, accommodation management, and later asset integrity into one coherent enterprise experience without losing the specificity of each operational area.",
-    strategy: [
-      "Translate stakeholder and business needs into a product scope the team could align around.",
-      "Define the MVP around the most important operational workflows and create an extensible product structure.",
-      "Design the end-to-end experience while keeping future modules and tailored deployments in view.",
-      "Expand the MVP with Asset Integrity Management when the product opportunity became clearer.",
-    ],
-    result: [
-      "Created the strategy and design direction for DPAnalytics’ flagship product.",
-      "Broadened the product’s value proposition through the Asset Integrity module.",
-      "Helped position BONGS for market adoption and contributed to demand for tailored solutions from other organizations.",
-    ],
-  },
-  {
-    slug: "suburban-cloud",
-    company: "Suburban Fiber Co",
-    title: "Turning a cloud product stack into a market proposition",
-    summary:
-      "Product positioning, ecosystem strategy, and go-to-market leadership for a sovereign cloud provider entering a complex market.",
-    sector: "Cloud · Growth",
-    readTime: "6 min",
-    role: "Head of Marketing",
-    timeframe: "2023 — 2024",
-    theme: "blue",
-    metrics: [
-      { value: "1K", label: "Starting user base for a key initiative" },
-      { value: "100K", label: "Potential users opened up within months" },
-      { value: "2", label: "Major ecosystem events led with strategic partners" },
-    ],
-    challenge:
-      "The company had a technically credible cloud product stack, but needed a clear market position, a stronger ecosystem, and a coordinated route to adoption across corporate and government audiences.",
-    strategy: [
-      "Research the market and competitive landscape to identify credible positions for the product portfolio.",
-      "Frame Suburban as a sovereign cloud provider and connect individual products to a coherent market story.",
-      "Build an ecosystem strategy across internal teams, strategic partners, media agencies, and public-sector stakeholders.",
-      "Use targeted proposals and high-profile events—including GITEX and the Digital Trade event—to create qualified attention.",
-    ],
-    result: [
-      "Strengthened Suburban’s position as a sovereign cloud provider.",
-      "Created a potential acquisition path from 1,000 to 100,000 users for a key product initiative.",
-      "Aligned product, marketing, partnerships, and content around shared commercial goals.",
-    ],
-  },
   {
     slug: "smartseal",
     company: "SmartSeal",
@@ -371,6 +312,72 @@ export const experience = [
   },
 ];
 
+// Archived case studies preserved for reference or future re-activation
+export const archivedProjects: Project[] = [
+  {
+    slug: "bongs",
+    company: "DPAnalytics Solutions",
+    title: "Shaping a vessel management ERP for complex operations",
+    summary:
+      "Scoping, product strategy, and end-to-end design for an enterprise platform spanning inventory, procurement, accommodation, and asset integrity.",
+    sector: "Enterprise SaaS",
+    readTime: "5 min",
+    role: "Head of Product Design",
+    timeframe: "2024 — Present",
+    theme: "lime",
+    metrics: [
+      { value: "4", label: "Operational areas connected in one product direction" },
+      { value: "0→1", label: "Flagship product taken from scope to MVP" },
+      { value: "+1", label: "Asset Integrity module added to broaden the offer" },
+    ],
+    challenge:
+      "Vessel operations involve several interconnected workflows. The product opportunity was to bring inventory, procurement, accommodation management, and later asset integrity into one coherent enterprise experience without losing the specificity of each operational area.",
+    strategy: [
+      "Translate stakeholder and business needs into a product scope the team could align around.",
+      "Define the MVP around the most important operational workflows and create an extensible product structure.",
+      "Design the end-to-end experience while keeping future modules and tailored deployments in view.",
+      "Expand the MVP with Asset Integrity Management when the product opportunity became clearer.",
+    ],
+    result: [
+      "Created the strategy and design direction for DPAnalytics’ flagship product.",
+      "Broadened the product’s value proposition through the Asset Integrity module.",
+      "Helped position BONGS for market adoption and contributed to demand for tailored solutions from other organizations.",
+    ],
+  },
+  {
+    slug: "suburban-cloud",
+    company: "Suburban Fiber Co",
+    title: "Turning a cloud product stack into a market proposition",
+    summary:
+      "Product positioning, ecosystem strategy, and go-to-market leadership for a sovereign cloud provider entering a complex market.",
+    sector: "Cloud · Growth",
+    readTime: "6 min",
+    role: "Head of Marketing",
+    timeframe: "2023 — 2024",
+    theme: "blue",
+    metrics: [
+      { value: "1K", label: "Starting user base for a key initiative" },
+      { value: "100K", label: "Potential users opened up within months" },
+      { value: "2", label: "Major ecosystem events led with strategic partners" },
+    ],
+    challenge:
+      "The company had a technically credible cloud product stack, but needed a clear market position, a stronger ecosystem, and a coordinated route to adoption across corporate and government audiences.",
+    strategy: [
+      "Research the market and competitive landscape to identify credible positions for the product portfolio.",
+      "Frame Suburban as a sovereign cloud provider and connect individual products to a coherent market story.",
+      "Build an ecosystem strategy across internal teams, strategic partners, media agencies, and public-sector stakeholders.",
+      "Use targeted proposals and high-profile events—including GITEX and the Digital Trade event—to create qualified attention.",
+    ],
+    result: [
+      "Strengthened Suburban’s position as a sovereign cloud provider.",
+      "Created a potential acquisition path from 1,000 to 100,000 users for a key product initiative.",
+      "Aligned product, marketing, partnerships, and content around shared commercial goals.",
+    ],
+  },
+];
+
+export const allProjects: Project[] = [...projects, ...archivedProjects];
+
 export function getProject(slug: string) {
-  return projects.find((project) => project.slug === slug);
+  return allProjects.find((project) => project.slug === slug);
 }

@@ -5,8 +5,8 @@ import { ProjectVisual, SiteFooter, SiteHeader } from "./site-chrome";
 
 const proofPoints = [
   { value: "10+", label: "Years across design, strategy, and growth" },
-  { value: "4-in-1", label: "Operational areas connected in BONGS" },
-  { value: "1K→100K", label: "Potential reach created for a cloud initiative" },
+  { value: "0→1", label: "Flagship products taken from concept to market" },
+  { value: "≈$625K", label: "Seed funding raised following product design" },
 ];
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
             <p className="eyebrow">Selected work</p>
             <h2>Products, systems, and routes to adoption.</h2>
           </div>
-          <p>Four stories showing how I connect user experience, product direction, and business reality.</p>
+          <p>Featured case studies showing how I connect user experience, product direction, and business reality.</p>
         </div>
         <div className="project-list">
           {projects.map((project, index) => (
@@ -74,6 +74,24 @@ export default function Home() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="lab-callout-card" id="home-ai-lab-callout">
+          <div>
+            <p className="eyebrow" style={{ marginBottom: "8px" }}>My AI Lab · Interactive Prototype</p>
+            <h3 style={{ fontSize: "28px", margin: "0 0 8px", color: "var(--text)" }}>StitchFlow</h3>
+            <p style={{ margin: 0, color: "var(--text-muted)", fontSize: "16px", lineHeight: "1.5", maxWidth: "680px" }}>
+              Explore an interactive walkthrough of a capacity-based ERP built for bespoke fashion, digital job cards, and automated tailor payouts.
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+            <Link href="/ai-lab/stitchflow" className="button button-primary" style={{ whiteSpace: "nowrap" }}>
+              View StitchFlow Demo ↗
+            </Link>
+            <Link href="/ai-lab" className="button button-secondary" style={{ whiteSpace: "nowrap" }}>
+              AI Lab ↗
+            </Link>
+          </div>
         </div>
       </section>
 

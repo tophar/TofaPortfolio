@@ -14,6 +14,7 @@ export function SiteHeader() {
       <div className="header-controls">
         <nav aria-label="Primary navigation">
           <Link href="/#work">Work</Link>
+          <Link href="/ai-lab">AI Lab</Link>
           <Link href="/#approach">Approach</Link>
           <Link href="/about">About</Link>
           <Link href="/#contact">Contact</Link>
@@ -37,6 +38,7 @@ export function SiteFooter() {
         <ThemeToggle id="footer-theme-toggle" variant="footer" />
       </div>
       <div className="footer-links">
+        <Link href="/ai-lab">AI Lab</Link>
         <a href="mailto:tophar95@gmail.com">Email</a>
         <a href="https://tofa.notion.site/Building-useable-useful-and-beautiful-products-7955b4f0e8ba4bf9b5b05f40cb366a58" target="_blank" rel="noreferrer">Archive</a>
         <a href="#top">Back to top ↑</a>

@@ -12,7 +12,7 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: "dark",
+  theme: "light",
   toggleTheme: () => {},
   setTheme: () => {},
   mounted: false,
@@ -20,33 +20,39 @@ const ThemeContext = createContext<ThemeContextValue>({
 
 const STORAGE_KEY = "tofa_theme";
 
+function getSystemTheme(): Theme {
+  if (typeof window === "undefined") return "light";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 function getSnapshot(): Theme {
-  if (typeof window === "undefined") return "dark";
-  const attr = document.documentElement.getAttribute("data-theme");
-  if (attr === "light" || attr === "dark") return attr;
+  if (typeof window === "undefined") return "light";
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === "light" || stored === "dark") return stored;
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
   } catch {
     // ignore storage access errors
   }
-  return "dark";
+  const attr = document.documentElement.getAttribute("data-theme");
+  if (attr === "light" || attr === "dark") return attr;
+  return getSystemTheme();
 }
 
 function getServerSnapshot(): Theme {
-  return "dark";
+  return "light";
 }
 
 const listeners = new Set<() => void>();
 
 function subscribe(callback: () => void) {
   listeners.add(callback);
-  const media = window.matchMedia("(prefers-color-scheme: light)");
-  const handleMedia = () => {
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const handleMedia = (e: MediaQueryListEvent) => {
     try {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        document.documentElement.setAttribute("data-theme", media.matches ? "light" : "dark");
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored !== "light" && stored !== "dark") {
+        const sysTheme = e.matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", sysTheme);
         callback();
       }
     } catch {
@@ -56,9 +62,24 @@ function subscribe(callback: () => void) {
 
   media.addEventListener("change", handleMedia);
 
+  const handleStorage = (e: StorageEvent) => {
+    if (e.key === STORAGE_KEY) {
+      const val = e.newValue;
+      if (val === "light" || val === "dark") {
+        document.documentElement.setAttribute("data-theme", val);
+      } else {
+        const sys = getSystemTheme();
+        document.documentElement.setAttribute("data-theme", sys);
+      }
+      callback();
+    }
+  };
+  window.addEventListener("storage", handleStorage);
+
   return () => {
     listeners.delete(callback);
     media.removeEventListener("change", handleMedia);
+    window.removeEventListener("storage", handleStorage);
   };
 }
 

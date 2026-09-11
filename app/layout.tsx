@@ -29,7 +29,8 @@ const themeScript = `
 (function() {
   try {
     var stored = localStorage.getItem('tofa_theme');
-    var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = (stored === 'light' || stored === 'dark') ? stored : (isDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}
 })();
@@ -41,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
         <script id="theme-init" dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ThemeProvider>{children}</ThemeProvider>

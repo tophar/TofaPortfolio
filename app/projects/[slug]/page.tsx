@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "../../portfolio-data";
+import { allProjects, getProject, projects } from "../../portfolio-data";
 import { ProjectVisual, SiteFooter, SiteHeader } from "../../site-chrome";
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return projects.map(({ slug }) => ({ slug }));
+  return allProjects.map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
@@ -40,7 +40,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = getProject(slug);
   if (!project) notFound();
   const projectIndex = projects.findIndex((item) => item.slug === slug);
-  const nextProject = projects[(projectIndex + 1) % projects.length];
+  const nextProject =
+    projectIndex !== -1
+      ? projects[(projectIndex + 1) % projects.length]
+      : projects[0];
 
   return (
     <main id="top">
