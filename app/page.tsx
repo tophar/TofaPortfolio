@@ -35,11 +35,12 @@ export default function Home() {
         <div className="hero-art" aria-hidden="true">
           <div className="hero-portrait">
             <Image
-              src="/tofa-illustrated-portrait.png"
-              alt=""
+              src="https://i.ibb.co/mFCLrCh6/ezgif-80fcf79d8645e61c.gif"
+              alt="Oluwatofarati Tofa David"
               fill
               sizes="(max-width: 900px) 100vw, 410px"
               priority
+              referrerPolicy="no-referrer"
             />
           </div>
         </div>
