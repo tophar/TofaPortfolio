@@ -38,7 +38,7 @@ export default function Home() {
               src="https://i.ibb.co/mFCLrCh6/ezgif-80fcf79d8645e61c.gif"
               alt="Oluwatofarati Tofa David"
               fill
-              sizes="(max-width: 560px) 280px, (max-width: 900px) 320px, 350px"
+              sizes="(max-width: 560px) 250px, (max-width: 900px) 280px, 320px"
               priority
               referrerPolicy="no-referrer"
             />
