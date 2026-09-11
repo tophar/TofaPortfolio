@@ -78,20 +78,16 @@ export default function Home() {
 
         <div className="lab-callout-card" id="home-ai-lab-callout">
           <div>
-            <p className="eyebrow" style={{ marginBottom: "8px" }}>My AI Lab · Interactive Prototype</p>
-            <h3 style={{ fontSize: "28px", margin: "0 0 8px", color: "var(--text)" }}>StitchFlow</h3>
-            <p style={{ margin: 0, color: "var(--text-muted)", fontSize: "16px", lineHeight: "1.5", maxWidth: "680px" }}>
-              Explore an interactive walkthrough of a capacity-based ERP built for bespoke fashion, digital job cards, and automated tailor payouts.
+            <p className="eyebrow">AI Lab</p>
+            <h3>StitchFlow</h3>
+            <p>
+              A practical operations product for tailoring businesses, with an
+              interactive walkthrough of the core workflow.
             </p>
           </div>
-          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-            <Link href="/ai-lab/stitchflow" className="button button-primary" style={{ whiteSpace: "nowrap" }}>
-              View StitchFlow Demo ↗
-            </Link>
-            <Link href="/ai-lab" className="button button-secondary" style={{ whiteSpace: "nowrap" }}>
-              AI Lab ↗
-            </Link>
-          </div>
+          <Link href="/ai-lab/stitchflow" className="text-link">
+            View product and demo ↗
+          </Link>
         </div>
       </section>
 
