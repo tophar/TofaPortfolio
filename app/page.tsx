@@ -38,7 +38,7 @@ export default function Home() {
               src="https://i.ibb.co/mFCLrCh6/ezgif-80fcf79d8645e61c.gif"
               alt="Oluwatofarati Tofa David"
               fill
-              sizes="(max-width: 560px) 250px, (max-width: 900px) 280px, 320px"
+              sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 900px) 640px, 320px"
               priority
               referrerPolicy="no-referrer"
             />
@@ -78,17 +78,18 @@ export default function Home() {
         </div>
 
         <div className="lab-callout-card" id="home-ai-lab-callout">
-          <div>
+          <div className="lab-callout-copy">
             <p className="eyebrow">AI Lab</p>
-            <h3>StitchFlow</h3>
+            <h3>Where ideas become reality using AI</h3>
             <p>
-              A practical operations product for tailoring businesses, with an
-              interactive walkthrough of the core workflow.
+              This is where I bring some of the product ideas I have to reality using AI—building practical, working tools that test how intelligent workflows remove real operational friction.
             </p>
           </div>
-          <Link href="/ai-lab/stitchflow" className="text-link">
-            View product and demo ↗
-          </Link>
+          <div className="lab-callout-actions">
+            <Link href="/ai-lab" className="button button-secondary" id="home-explore-ai-lab">
+              Explore AI Lab & Ideology <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
