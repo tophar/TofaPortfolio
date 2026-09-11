@@ -1,28 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-
-export function SiteHeader() {
-  return (
-    <header className="site-header">
-      <Link className="brand" href="/" aria-label="Tofa David, home">
-        <span className="brand-mark" aria-hidden="true">
-          <Image src="/tofa-logo.png" alt="" width={42} height={42} priority />
-        </span>
-        <span>Tofa David</span>
-      </Link>
-      <div className="header-controls">
-        <nav aria-label="Primary navigation">
-          <Link href="/#work">Work</Link>
-          <Link href="/ai-lab">AI Lab</Link>
-          <Link href="/about">About</Link>
-          <Link href="/#contact">Contact</Link>
-        </nav>
-        <ThemeToggle id="header-theme-toggle" />
-      </div>
-    </header>
-  );
-}
+export { SiteHeader } from "./site-header";
 
 export function SiteFooter() {
   return (
