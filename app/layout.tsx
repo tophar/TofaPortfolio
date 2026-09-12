@@ -11,6 +11,7 @@ const siteOrigin =
 const title = "Tofa David — Product Design & Strategy";
 const description =
   "Product design leader helping teams turn complex ideas into useful, adoptable products.";
+const ogImage = "https://i.ibb.co/mFCLrCh6/ezgif-80fcf79d8645e61c.gif";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
@@ -21,8 +22,23 @@ export const metadata: Metadata = {
     shortcut: "/tofa-logo.png",
     apple: "/tofa-logo.png",
   },
-  openGraph: { title, description, type: "website", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        alt: "Oluwatofarati Tofa David",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage],
+  },
 };
 
 const themeScript = `
